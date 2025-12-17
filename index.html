@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dahn Reymart D. Capiong - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #127c3d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;    
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(143, 185, 15, 0.5);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29 0%, #136841 50%, #3030a1 100%);
+            min-height: 100vh;
+        }
+        
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 1200px;
+            width: 90%;
+            margin: 2rem auto;
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: white;
+            z-index: 10000;
+        }
+        
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .image-grid img, .image-grid video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-grid img:hover, .image-grid video:hover {
+            transform: scale(1.05);
+        }
+
+        .image-grid img {
+            cursor: zoom-in;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 1rem;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: white;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: white;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-counter {
+            margin-top: 1rem;
+            color: white;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+        }
+
+        /* Social Icons */
+        .social-icon img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        /* Video thumbnail styling */
+        .video-thumbnail {
+            position: relative;
+        }
+
+        .video-thumbnail::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold gradient-text">Dahn Reymart D. Capiong</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-purple-400 transition px-3 py-2">Home</a>
+                        <a href="#about" class="hover:text-purple-400 transition px-3 py-2">About</a>
+                        <a href="#projects" class="hover:text-purple-400 transition px-3 py-2">Projects</a>
+                        <a href="#contact" class="hover:text-purple-400 transition px-3 py-2">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Text Content -->
+                <div class="text-center md:text-left">
+                    <div class="float">
+                        <h2 class="text-5xl md:text-7xl font-bold mb-6 fade-in-up">
+                            Hi, I'm <span class="gradient-text">Dahn Reymart D. Capiong</span>
+                        </h2>
+                    </div>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-6 fade-in-up" style="animation-delay: 0.2s;">
+                        Full Stack Developer & Creative Problem Solver
+                    </p>
+                    <p class="text-lg text-gray-400 mb-8 fade-in-up" style="animation-delay: 0.4s;">
+                        I craft beautiful, responsive web experiences that bring ideas to life. 
+                        Passionate about clean code and user-centric design.
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start fade-in-up" style="animation-delay: 0.6s;">
+                        <a href="#projects" class="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition transform hover:scale-105">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="glass px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side - Profile Image -->
+                <div class="flex justify-center md:justify-end fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="relative">
+                        <!-- Glowing ring effect -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full blur-2xl opacity-50 animate-pulse"></div>
+                        
+                        <!-- Profile image container -->
+                        <div class="relative glass rounded-full p-2">
+                            <div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-purple-500/30">
+                                <img src="./images/dahn.jpg" 
+                                     alt="Profile Picture" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Floating decorative elements -->
+                        <div class="absolute -top-4 -right-4 glass w-20 h-20 rounded-full flex items-center justify-center text-3xl float" style="animation-delay: 0.5s;">
+                            💻
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 glass w-16 h-16 rounded-full flex items-center justify-center text-2xl float" style="animation-delay: 1s;">
+                            ⚡
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4">Who I Am</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        I'm a passionate developer with a keen eye for design and a love for creating 
+                        seamless digital experiences. With expertise in modern web technologies, I transform 
+                        ideas into reality.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        When I'm not coding, you'll find me exploring new technologies, going to the gym, reading, contributing to 
+                        open-source projects, or learning something new.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Skills & Technologies</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">PHP</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">HTML</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">CSS</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">JavaScript</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">Laravel</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">Tailwind CSS</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">Bootstrap</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">SQL</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">Git</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">Canva & CapCut</span>
+                        <span class="skill-tag glass px-4 py-2 rounded-full text-sm">Microsoft Office</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-5xl font-bold text-center mb-8 gradient-text">Featured Projects</h1>
+            <h2 class="text-2xl font-bold text-center mb-10 gradient-text">Some of my Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Project 1 -->
+                <div class="project-card glass rounded-2xl overflow-hidden" onclick="openProjectModal('project1')">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center overflow-hidden">
+                        <img src="./images/project 1.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">First Aid Knowledge Based</h3>
+                        <p class="text-gray-300 mb-4">
+                           Basic first aid knowledge focused on safety, response, and proper handling of common situations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs glass px-3 py-1 rounded-full">PHP</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">HTML,CSS,JS</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">Tailwind</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">WAMPSERVER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass rounded-2xl overflow-hidden" onclick="openProjectModal('project2')">
+                    <div class="h-48 bg-gradient-to-br from-pink-600 to-red-600 flex items-center justify-center overflow-hidden">
+                        <img src="./images/project 2.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">JETJAIRO Booking System</h3>
+                        <p class="text-gray-300 mb-4">
+                          A simple and efficient booking system designed for fast scheduling, accurate records, and smooth user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs glass px-3 py-1 rounded-full">PHP</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">HTML,CSS,JS</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">Tailwind</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">WAMPSERVER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass rounded-2xl overflow-hidden" onclick="openProjectModal('project3')">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center overflow-hidden">
+                        <img src="./images/project 3.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Pharmacy Inventory</h3>
+                        <p class="text-gray-300 mb-4">
+                           Systematic monitoring of medicines, supplies, and expiration dates for proper stock control.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs glass px-3 py-1 rounded-full">PHP</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">HTML,CSS,JS</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">Tailwind</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">WAMPSERVER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Furniture Inventory -->
+                <div class="project-card glass rounded-2xl overflow-hidden" onclick="openProjectModal('project6')">
+                    <div class="h-48 bg-gradient-to-br from-orange-600 to-yellow-600 flex items-center justify-center overflow-hidden">
+                        <img src="./images/inventory_warehouse/1.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Furniture Inventory</h3>
+                        <p class="text-gray-300 mb-4">
+                           Manage your furniture inventory efficiently, track stock, and organize items for smooth operations and easy access.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs glass px-3 py-1 rounded-full">PHP</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">HTML,CSS,JS</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">Tailwind</span>
+                            <span class="text-xs glass px-3 py-1 rounded-full">WAMPSERVER</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CANVA AND CAPCUT Section -->
+            <h2 class="text-2xl font-bold text-center mb-10 gradient-text">CANVA AND CAPCUT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 4 - Canva -->
+                <div class="project-card glass rounded-2xl overflow-hidden" onclick="openProjectModal('project4')">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center overflow-hidden">
+                        <img src="./images/canva/6.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Canva</h3>
+                        <p class="text-gray-300 mb-4">
+                            Essential design skills focused on creativity, efficiency, and professional editing of posters, videos, and graphics.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 5 - CapCut -->
+                <div class="project-card glass rounded-2xl overflow-hidden" onclick="openProjectModal('project5')">
+                    <div class="h-48 bg-gradient-to-br from-pink-600 to-red-600 flex items-center justify-center overflow-hidden video-thumbnail">
+                        <video muted playsinline class="w-full h-full object-cover">
+                            <source src="./images/Capcut/Messenger_creation_899DC7B2-DCAA-4DD9-9C22-039733B15EA0.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">CapCut</h3>
+                        <p class="text-gray-300 mb-4">
+                            CapCut makes video editing simple and creative, letting you trim, add effects, and enhance your clips for professional-quality results in minutes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="close-modal" onclick="closeProjectModal()">✕</div>
+        <div class="modal-content">
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+            <img id="lightboxImage" class="lightbox-image" src="" alt="Full size image">
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+            <div class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</div>
+            <div class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-8 gradient-text">Let's Work Together</h2>
+            <p class="text-xl text-gray-300 mb-12">
+                Have a project in mind? Let's create something amazing together.
+            </p>
+            <div class="glass p-8 rounded-2xl max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <input type="text" name="name" placeholder="Your Name" required
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Your Email" required
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition">
+                    </div>
+                    <div>
+                        <textarea name="message" placeholder="Your Message" rows="5" required
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition resize-none"></textarea>
+                    </div>
+                    <button type="submit" 
+                        class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition transform hover:scale-105">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="flex justify-center gap-6 mt-12">
+                <a href="mailto:capiongdahnreymart@gmail.com" class="glass w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/10 transition social-icon">
+                    <img src="./images/social_logo/gmail.webp=s96-fcrop64=1,00000000ffffffff-rw" alt="Gmail">
+                </a>
+                <a href="https://www.facebook.com/dahnreymart.dejos" target="_blank" class="glass w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/10 transition social-icon">
+                    <img src="./images/social_logo/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/dahn_reymart?igsh=N3NnamV5NThwMWtz" target="_blank" class="glass w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/10 transition social-icon">
+                    <img src="./images/social_logo/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script>
+        // Global lightbox variables
+        let currentLightboxImages = [];
+        let currentLightboxIndex = 0;
+
+        // Project data with images
+        const projectData = {
+            project1: {
+                title: "First Aid Knowledge Based",
+                description: "Basic first aid knowledge focused on safety, response, and proper handling of common situations. This comprehensive system provides users with essential emergency response information, treatment protocols, and safety guidelines for various medical emergencies.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/first_aid/1.png",
+                    "./images/first_aid/2.png",
+                    "./images/first_aid/3.png",
+                    "./images/first_aid/4.png",   
+                    "./images/first_aid/5.png"
+                ]
+            },
+            project2: {
+                title: "JETJAIRO Booking System",
+                description: "A simple and efficient booking system designed for fast scheduling, accurate records, and smooth user experience.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/jet_jairo/1.png",
+                    "./images/jet_jairo/2.png",
+                    "./images/jet_jairo/3.png",     
+                    "./images/jet_jairo/4.jpg"
+                ]
+            },
+            project3: {
+                title: "Pharmacy Inventory",
+                description: "Systematic monitoring of medicines, supplies, and expiration dates for proper stock control. This specialized pharmacy management system ensures medication safety through expiration tracking, batch management, prescription processing, and comprehensive inventory control tailored for pharmaceutical operations.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/phar_inventory/1.png",
+                    "./images/phar_inventory/2.png",
+                    "./images/phar_inventory/3.png",
+                    "./images/phar_inventory/4.png",
+                    "./images/phar_inventory/5.png",
+                    "./images/phar_inventory/6.png",
+                    "./images/phar_inventory/7.png"
+                ]
+            },
+            project4: {
+                title: "Canva",
+                description: "Essential design skills focused on creativity, efficiency, and professional editing of posters, videos, and graphics.",
+                tech: ["Canva", "Graphic Design", "Visual Content"],
+                images: [
+                    "./images/canva/1.png",
+                    "./images/canva/2.png",
+                    "./images/canva/3.png",
+                    "./images/canva/4.png",
+                    "./images/canva/5.png",
+                    "./images/canva/6.png"
+                ]
+            },
+            project5: {
+                title: "CapCut",
+                description: "CapCut makes video editing simple and creative, letting you trim, add effects, and enhance your clips for professional-quality results in minutes.",
+                tech: ["CapCut", "Video Editing", "Post Production"],
+                videos: [
+                    "./images/Capcut/Messenger_creation_899DC7B2-DCAA-4DD9-9C22-039733B15EA0.mp4",
+                    "./images/Capcut/Messenger_creation_869C8CDC-8537-407E-9C76-8FA53CADF753.mp4"
+            ]
+            },
+            project6: {
+                title: "Furniture Inventory",
+                description: "Manage your furniture inventory efficiently, track stock, and organize items for smooth operations and easy access.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/inventory_warehouse/1.png",
+                    "./images/inventory_warehouse/2.png",
+                    "./images/inventory_warehouse/3.png",
+                    "./images/inventory_warehouse/4.png",
+                    "./images/inventory_warehouse/5.png",
+                    "./images/inventory_warehouse/7.png",
+                    "./images/inventory_warehouse/8.png",
+                    "./images/inventory_warehouse/9.png",
+                    "./images/inventory_warehouse/10.png",  
+                    "./images/inventory_warehouse/11.png",
+                    "./images/inventory_warehouse/12.png"
+                ]
+            }
+        };
+
+        // Open lightbox
+        function openLightbox(imageSrc, imageArray, index) {
+            currentLightboxImages = imageArray;
+            currentLightboxIndex = index;
+            
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = imageSrc;
+            lightboxCounter.textContent = `${index + 1} / ${imageArray.length}`;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Navigate lightbox
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            
+            // Wrap around
+            if (currentLightboxIndex < 0) {
+                currentLightboxIndex = currentLightboxImages.length - 1;
+            } else if (currentLightboxIndex >= currentLightboxImages.length) {
+                currentLightboxIndex = 0;
+            }
+            
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = currentLightboxImages[currentLightboxIndex];
+            lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${currentLightboxImages.length}`;
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                }
+            }
+        });
+
+        // Open project modal
+        function openProjectModal(projectId) {
+            const project = projectData[projectId];
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('modalContent');
+            
+            let mediaContent = '';
+            
+            // Handle videos if they exist
+            if (project.videos && project.videos.length > 0) {
+                mediaContent += '<h3 class="text-2xl font-semibold mb-4">Project Videos</h3><div class="image-grid">';
+                project.videos.forEach(video => {
+                    mediaContent += `
+                        <video controls class="glass">
+                            <source src="${video}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                });
+                mediaContent += '</div>';
+            }
+            
+            // Handle images if they exist
+            if (project.images && project.images.length > 0) {
+                mediaContent += '<h3 class="text-2xl font-semibold mb-4 mt-6">Project Screenshots</h3><div class="image-grid">';
+                project.images.forEach((img, index) => {
+                    mediaContent += `<img src="${img}" alt="${project.title} screenshot" class="glass" onclick="openLightbox('${img}', projectData.${projectId}.images, ${index})">`;
+                });
+                mediaContent += '</div>';
+            }
+            
+            content.innerHTML = `
+                <div class="glass p-8 rounded-2xl">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">${project.title}</h2>
+                    <p class="text-gray-300 text-lg mb-6">${project.description}</p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3">Technologies Used:</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.tech.map(tech => `
+                                <span class="glass px-4 py-2 rounded-full text-sm">${tech}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    ${mediaContent}
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close project modal
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Stop all videos in modal
+            const videos = modal.querySelectorAll('video');
+            videos.forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const projectModal = document.getElementById('projectModal');
+                if (projectModal.classList.contains('active')) {
+                    closeProjectModal();
+                }
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('projectModal').addEventListener('click', (e) => {
+            if (e.target.id === 'projectModal') {
+                closeProjectModal();
+            }
+        });
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Form submission - Opens Gmail with pre-filled information
+        document.querySelector('#contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const message = e.target.message.value;
+            
+            // Create email subject and body
+            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+            const body = encodeURIComponent(
+                `Name: ${name}\n` +
+                `Email: ${email}\n\n` +
+                `Message:\n${message}`
+            );
+            
+            // Your Gmail address
+            const yourEmail = 'capiongdahnreymart@gmail.com';
+            
+            // Open Gmail compose window
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${subject}&body=${body}`, '_blank');
+            
+            // Show success message
+            alert('Opening Gmail to send your message...');
+            
+            // Reset form
+            e.target.reset();
+        });
+
+        // Active nav link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-purple-400');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-purple-400');
+                }
+            });
+        });
+        // Disable right-click
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+document.onkeydown = function(e) {
+    if(e.keyCode == 123 || // F12
+       (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) ||
+       (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) ||
+       (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+        return false;
+    }
+};
+    </script>
+</body>
+</html>
