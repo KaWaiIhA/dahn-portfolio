@@ -7,34 +7,53 @@
     <link rel="icon" href="images/dahn.jpg" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
      <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/dark-light.css">
+     <link rel="stylesheet" href="css/chatbot.css">
 
 </head>
 <body class="p-4 md:p-8">
+    <div class="profile-container p-4 sm:p-6 md:p-8 mb-6">
+    <!-- Dark Mode Toggle -->
+    <div class="flex justify-end mb-4">
+        <button onclick="toggleDarkMode()" id="darkModeToggle" class="toggle-switch">
+            <span class="toggle-icon sun-icon">☀️</span>
+            <span class="toggle-icon moon-icon">🌙</span>
+            <span class="toggle-slider"></span>
+        </button>
+    </div>
+    
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+        <!-- rest of your profile content -->
+    
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+        <!-- rest of your profile content -->
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+        <!-- rest of your profile content -->
     <div class="max-w-6xl mx-auto">
         <!-- Profile Header -->
-        <div class="profile-container p-8 mb-6">
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="flex-1">
-                    <div class="flex items-start gap-6 mb-6">
-                        <img src="./images/dahn.jpg" alt="Profile" class="profile-img">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-2">
-                                <h1 class="text-3xl font-bold">Dahn Reymart D. Capiong</h1>
-                                <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 mb-2">📍 Ayungon, Central Visayas, PH</p>
-                            <p class="text-lg font-medium mb-4">Web developer | Wordpress Specialist | Social Media Manager</p>
-                            <div class="flex gap-3">
-                                <button onclick="window.location.href='#contact'" class="btn-primary">Schedule a Call</button>
-                                <button onclick="window.location.href='mailto:capiongdahnreymart@gmail.com'" class="btn-secondary">Send Email</button>
-                            </div>
-                        </div>
+      <div class="profile-container p-4 sm:p-6 md:p-8 mb-6">
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+        <div class="flex-1">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6">
+                <img src="./images/dahn.jpg" alt="Profile" class="profile-img w-24 h-24 sm:w-32 sm:h-32">
+                <div class="flex-1 text-center sm:text-left">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 mb-2">
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold">Dahn Reymart D. Capiong</h1>
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <p class="text-sm sm:text-base text-gray-600 mb-2">📍 Ayungon, Central Visayas, PH</p>
+                    <p class="text-base sm:text-lg font-medium mb-4">Web developer | Wordpress Specialist | Social Media Manager</p>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                        <button onclick="openSchedulerModal()" class="btn-primary w-full sm:w-auto">Schedule a Call</button>
+                        <button onclick="window.location.href='mailto:capiongdahnreymart@gmail.com'" class="btn-secondary w-full sm:w-auto">Send Email</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <div class="grid md:grid-cols-3 gap-6">
             <!-- Left Column -->
@@ -51,7 +70,7 @@
                     <p class="text-gray-700 leading-relaxed">
                         When I'm not coding, you'll find me exploring new technologies, going to the gym, reading, contributing to open-source projects, or learning something new.
                     </p>
-                </div>
+            </div>
 
 
 
@@ -98,7 +117,7 @@
                             
                             <h2>Tech Stack</h2>
                         </div>
-                        <a href="#" class="view-all-link">View All →</a>
+                       <a href="#" onclick="event.preventDefault(); openViewAllModal('techstack')" class="view-all-link">View All →</a>
                     </div>
                     
                     <div class="mb-4">
@@ -117,7 +136,17 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="tech-badge">PHP</span>
                             <span class="tech-badge">Laravel</span>
-                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Python</span>
+                           
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-3 text-sm text-gray-600">Databases</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">MariaDB</span>
+                           
                         </div>
                     </div>
                     
@@ -142,7 +171,8 @@
                         
                             <h2>Recent Projects</h2>
                         </div>
-                        <a href="#all-projects" class="view-all-link">View All →</a>
+                        
+                        <a href="#" onclick="event.preventDefault(); openViewAllModal('recentprojects')" class="view-all-link">View All →</a>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-4">
@@ -190,7 +220,7 @@
                            
                             <h2>Projects</h2>
                         </div>
-                        <a href="#all-projects" class="view-all-link">View All →</a>
+                       <a href="#" onclick="event.preventDefault(); openViewAllModal('allprojects')" class="view-all-link">View All →</a>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-4">
@@ -238,26 +268,30 @@
                        
                         <h2>Creative Works</h2>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="project-card" onclick="openProjectModal('project4')">
-                            <img src="./images/canva/10.png" alt="Canva" class="w-full h-48 object-cover">
-                            <div class="p-4">
-                                <h3 class="font-semibold mb-2">Canva Designs</h3>
-                                <p class="text-sm text-gray-600">Graphic design portfolio</p>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card" onclick="openProjectModal('project5')">
-                            <video muted class="w-full h-48 object-cover">
-                                <source src="./images/Capcut/you_dont_have_an_enemy.mp4" type="video/mp4">
-                            </video>
-                            <div class="p-4">
-                                <h3 class="font-semibold mb-2">Video Editing</h3>
-                                <p class="text-sm text-gray-600">CapCut projects</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Creative Works -->
+<div class="section-card">
+
+    
+    <div class="grid md:grid-cols-2 gap-4">
+        <div class="project-card cursor-pointer" onclick="openCreativeModal('canva')">
+            <img src="./images/canva/10.png" alt="Canva" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="font-semibold mb-2">Canva Designs</h3>
+                <p class="text-sm text-gray-600">Graphic design portfolio</p>
+            </div>
+        </div>
+        
+        <div class="project-card cursor-pointer" onclick="openCreativeModal('capcut')">
+            <video muted class="w-full h-48 object-cover">
+                <source src="./images/Capcut/you_dont_have_an_enemy.mp4" type="video/mp4">
+            </video>
+            <div class="p-4">
+                <h3 class="font-semibold mb-2">Video Editing</h3>
+                <p class="text-sm text-gray-600">CapCut projects</p>
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
 
@@ -389,6 +423,13 @@
             </div>
         </div>
     </div>
+    <!-- View All Modal -->
+    <div id="viewAllModal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeViewAllModal()">✕</div>
+            <div id="viewAllContent"></div>
+        </div>
+    </div>
 
     <!-- Project Modal -->
     <div id="projectModal" class="modal">
@@ -397,7 +438,98 @@
             <div id="modalContent"></div>
         </div>
     </div>
+<!-- Creative Works Modal -->
+<div id="creativeModal" class="modal">
+    <div class="modal-content">
+        <div class="close-modal" onclick="closeCreativeModal()">✕</div>
+        <div id="creativeContent"></div>
+    </div>
+</div>
 
+<!-- Media Preview Modal -->
+<div id="mediaPreviewModal" class="modal">
+    <div class="modal-content" style="max-width: 90vw; max-height: 90vh;">
+        <div class="close-modal" onclick="closeMediaPreview()">✕</div>
+        <div id="mediaPreviewContent" class="flex items-center justify-center"></div>
+    </div>
+</div>
+
+<!-- Scheduler Modal -->
+<div id="schedulerModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+        <div class="close-modal" onclick="closeSchedulerModal()">✕</div>
+        <div id="schedulerContent">
+            <h2 class="text-3xl font-bold mb-4">Schedule a Call</h2>
+            <p class="text-gray-600 mb-6">Choose a date and time that works for you, and I'll get back to you to confirm.</p>
+            
+            <form id="schedulerForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Your Name *</label>
+                    <input type="text" name="name" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Your Email *</label>
+                    <input type="email" name="email" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                    <input type="tel" name="phone"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Preferred Date *</label>
+                        <input type="date" name="date" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Preferred Time *</label>
+                        <select name="time" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                            <option value="">Select time</option>
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="01:00 PM">01:00 PM</option>
+                            <option value="02:00 PM">02:00 PM</option>
+                            <option value="03:00 PM">03:00 PM</option>
+                            <option value="04:00 PM">04:00 PM</option>
+                            <option value="05:00 PM">05:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Call Purpose *</label>
+                    <select name="purpose" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <option value="">Select purpose</option>
+                        <option value="Web Development Project">Web Development Project</option>
+                        <option value="WordPress Website">WordPress Website</option>
+                        <option value="Social Media Management">Social Media Management</option>
+                        <option value="General Consultation">General Consultation</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Additional Notes</label>
+                    <textarea name="notes" rows="3"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500 resize-none"
+                        placeholder="Tell me more about your project or questions..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary w-full">Submit Appointment Request</button>
+            </form>
+        </div>
+    </div>
+</div>
     <script>
         const projectData = {
             project1: {
@@ -563,5 +695,75 @@
             e.target.reset();
         });
     </script>
+
+
+   <!-- AI Chatbot Button -->
+<button onclick="toggleChatbot()" id="chatbotButton" class="chatbot-button">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+    </svg>
+    <span class="chatbot-label">Chat with Dahn</span>
+</button>
+
+<!-- AI Chatbot Modal -->
+<div id="chatbotModal" class="chatbot-modal">
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <div class="header-info">
+                <h3 class="chat-title">Chat with Dahn</h3>
+                <div class="online-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+            </div>
+            <button onclick="toggleChatbot()" class="close-chat">✕</button>
+        </div>
+        
+        <div id="chatMessages" class="chat-messages">
+            <div class="bot-message-wrapper">
+                <div class="bot-avatar">
+                    <img src="images/dahn.jpg">
+                </div>
+                <div class="bot-message-content">
+                    <div class="bot-name">Dahn Reymart</div>
+                    <div class="message-bubble bot-bubble">
+                        Hi there! 👋 Thanks for visiting my website. Feel free to ask me anything about programming, web development, or my experiences in tech. Let me know how I can help!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <input 
+                type="text" 
+                id="chatInput" 
+                placeholder="Type a message..." 
+                class="chat-input"
+                maxlength="1000"
+                onkeypress="if(event.key==='Enter') sendMessage()"
+            >
+            <button onclick="sendMessage()" class="send-button" id="sendButton">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="chat-footer">
+            <p class="footer-text">Ask me about programming, web dev, or tech!</p>
+            <p class="char-counter"><span id="charCount">0</span>/1000</p>
+        </div>
+    </div>
+</div>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/cretive-modal.js"></script>
+    <script src="js/schedule.js"></script>
+    <script src="js/dark-light.js"></script>
+    <script src="js/chatbot.js"></script>
+
+
+    
 </body>
 </html>
