@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dahn Reymart D. Capiong - Portfolio</title>
+    <link rel="icon" href="images/dahn.jpg" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/dark-light.css">
+     <link rel="stylesheet" href="css/chatbot.css">
+
+</head>
+<body class="p-4 md:p-8">
+
+  <div class="max-w-6xl mx-auto">
+    <div class="profile-container p-4 sm:p-6 md:p-8 mb-6">
+        <!-- rest of your profile content -->
+  
+        
+        <button onclick="toggleDarkMode()" id="darkModeToggle" class="toggle-switch">
+            <span class="toggle-icon sun-icon">☀️</span>
+            <span class="toggle-icon moon-icon">🌙</span>
+            <span class="toggle-slider"></span>
+        </button>
+
+        <!-- Profile Header -->
+      <div class="profile-container p-4 sm:p-6 md:p-8 mb-6">
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+        <div class="flex-1">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6">
+                <img src="images/dahn.jpg" alt="Profile" class="profile-img w-24 h-24 sm:w-32 sm:h-32">
+                <div class="flex-1 text-center sm:text-left">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 mb-2">
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold">Dahn Reymart D. Capiong</h1>
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <p class="text-sm sm:text-base text-gray-600 mb-2">📍 Ayungon, Central Visayas, PH</p>
+                    <p class="text-base sm:text-lg font-medium mb-4">Web developer | Wordpress Specialist | Social Media Manager</p>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                        <button onclick="openSchedulerModal()" class="btn-primary w-full sm:w-auto">Schedule a Call</button>
+                        <button onclick="window.location.href='mailto:capiongdahnreymart@gmail.com'" class="btn-secondary w-full sm:w-auto">Send Email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Left Column -->
+            <div class="md:col-span-2 space-y-6">
+                <!-- About Section -->
+                <div class="section-card">
+                    <div class="section-header">
+                       
+                        <h2>WHOW AM I?</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                      I build and manage websites with clean structure and strong usability. I focus on efficient code and clear design. I also handle content, scheduling, and engagement across social media platforms. I turn ideas into functional digital results.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        When I'm not coding, you'll find me exploring new technologies, going to the gym, reading, contributing to open-source projects, or learning something new.
+                    </p>
+            </div>
+
+
+
+
+            <div class="section-card">
+                    <div class="section-header">
+                        <h2>WHY ME?</h2>
+                    </div>
+                    <div class="why-me-grid">
+                        <div class="why-me-item">
+                            <h3> Full-Stack Capability</h3>
+                            <p>I handle both frontend and backend development, delivering complete solutions from design to deployment with seamless integration.</p>
+                        </div>
+                        <div class="why-me-item">
+                            <h3> Result-Oriented Approach</h3>
+                            <p>I focus on creating functional, efficient solutions that meet your specific needs and deliver measurable results for your business.</p>
+                        </div>
+                        <div class="why-me-item">
+                            <h3> Modern Tech Stack</h3>
+                            <p>I use current technologies and best practices to ensure your project is built with scalable, maintainable, and future-proof code.</p>
+                        </div>
+                        <div class="why-me-item">
+                            <h3> Multi-Platform Experience</h3>
+                            <p>From web development to social media management, I bring diverse skills that cover all aspects of your digital presence.</p>
+                        </div>
+                        <div class="why-me-item">
+                            <h3> Quick Learner</h3>
+                            <p>I continuously expand my skills through seminars, webinars, and hands-on projects, staying updated with industry trends and technologies.</p>
+                        </div>
+                        <div class="why-me-item">
+                            <h3> Professional & Reliable</h3>
+                            <p>With experience in both government and corporate settings, I bring professionalism, clear communication, and commitment to every project.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                
+                <!-- Tech Stack Section -->
+                <div class="section-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="section-header mb-0">
+                            
+                            <h2>Tech Stack</h2>
+                        </div>
+                       <a href="#" onclick="event.preventDefault(); openViewAllModal('techstack')" class="view-all-link">View All →</a>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-3 text-sm text-gray-600">Frontend</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">CSS</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                            <span class="tech-badge">Bootstrap</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-3 text-sm text-gray-600">Backend</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">Laravel</span>
+                            <span class="tech-badge">Python</span>
+                           
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-3 text-sm text-gray-600">Databases</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">MariaDB</span>
+                           
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold mb-3 text-sm text-gray-600">Tools & Others</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Git</span>
+                            <span class="tech-badge">WAMPSERVER</span>
+                            <span class="tech-badge">Canva</span>
+                            <span class="tech-badge">CapCut</span>
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">Webflow</span>
+                            <span class="tech-badge">Microsoft Office</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Projects Section -->
+                <div class="section-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="section-header mb-0">
+                        
+                            <h2>Recent Projects</h2>
+                        </div>
+                        
+                        <a href="#" onclick="event.preventDefault(); openViewAllModal('recentprojects')" class="view-all-link">View All →</a>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                           
+                        <a href="https://kawaiiha.github.io/Ayungon-Tourist-spot/app/index.html" target="_blank" class="recent-project-card">
+                            <h3 class="font-semibold mb-2"> Ayungon Tourist Spots</h3>
+                            <p class="text-sm text-gray-600 mb-3">Tourist spots and there history</p>
+                            <p class="text-xs text-gray-500 font-mono">https://kawaiiha.github.io/Ayungon-Tourist-spot/app/index.html</p>
+                        </a>
+                       
+                      <a href="https://holidaycamp.infinityfreeapp.com" target="_blank" class="recent-project-card">
+                            <h3 class="font-semibold mb-2">Super Session Holiday-Camp</h3>
+                            <p class="text-sm text-gray-600 mb-3">A Camp is a kids activity site for school holiday fun. It offers games, play zones, and fun challenges for children.</p>
+                            <p class="text-xs text-gray-500 font-mono">https://holidaycamp.infinityfreeapp.com/</p>
+                    </a>
+
+                        
+                            <a href="https://jabaldurm.lovable.app" target="_blank" class="recent-project-card">
+                            <h3 class="font-semibold mb-2"> Mount Dharm in the land of Balsamer</h3>
+                            <p class="text-sm text-gray-600 mb-3">Introduction to the region, then visual stories</p>
+                            <p class="text-xs text-gray-500 font-mono">https://jabaldurm.lovable.app</p>
+                        </a>
+                       
+                        <a href="https://genirikainventori.kesug.com/app/index.php" target="_blank" class="recent-project-card">
+                            <h3 class="font-semibold mb-2">TasteLike It Restaurant</h3>
+                            <p class="text-sm text-gray-600 mb-3">Online Ordering Restaurant</p>
+                            <p class="text-xs text-gray-500 font-mono">https://TasteLikeIt!.kesug.com/app/index.php</p>
+                        </a>
+                        
+                        <a href="https://kawaiiha.github.io/Manila-fashion_shopify/app/" target="_blank" class="recent-project-card">
+                            <h3 class="font-semibold mb-2">FMANILA FASHION</h3>
+                            <p class="text-sm text-gray-600 mb-3">Online fashion store.</p>
+                            <p class="text-xs text-gray-500 font-mono">https://kawaiiha.github.io/Manila-fashion_shopify/app/</p>
+                        </a>
+                        
+                    </div>
+
+                
+                </div>
+
+                <!-- Portfolio Projects Section -->
+                <div class="section-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="section-header mb-0">
+                           
+                            <h2>Projects</h2>
+                        </div>
+                       <a href="#" onclick="event.preventDefault(); openViewAllModal('allprojects')" class="view-all-link">View All →</a>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="project-card" onclick="openProjectModal('project1')">
+                            <img src="./images/project 1.png" alt="First Aid" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">First Aid Knowledge Based</h3>
+                                <p class="text-sm text-gray-600 mb-2">Basic first aid knowledge system</p>
+                                <p class="text-xs text-blue-600">first-aid.dev</p>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" onclick="openProjectModal('project2')">
+                            <img src="./images/project 2.png" alt="Booking System" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">JETJAIRO Booking System</h3>
+                                <p class="text-sm text-gray-600 mb-2">Efficient booking platform</p>
+                                <p class="text-xs text-blue-600">jetjairo.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" onclick="openProjectModal('project3')">
+                            <img src="./images/project 3.png" alt="Pharmacy" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">Pharmacy Inventory</h3>
+                                <p class="text-sm text-gray-600 mb-2">Medicine tracking system</p>
+                                <p class="text-xs text-blue-600">pharmacy-inv.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" onclick="openProjectModal('project6')">
+                            <img src="./images/inventory_warehouse/1.png" alt="Furniture" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">Furniture Inventory</h3>
+                                <p class="text-sm text-gray-600 mb-2">Warehouse management</p>
+                                <p class="text-xs text-blue-600">furniture-inv.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Works -->
+                <div class="section-card">
+                    <div class="section-header">
+                       
+                        <h2>Creative Works</h2>
+                    </div>
+                    <!-- Creative Works -->
+<div class="section-card">
+
+    
+    <div class="grid md:grid-cols-2 gap-4">
+        <div class="project-card cursor-pointer" onclick="openCreativeModal('canva')">
+            <img src="./images/canva/10.png" alt="Canva" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="font-semibold mb-2">Canva Designs</h3>
+                <p class="text-sm text-gray-600">Graphic design portfolio</p>
+            </div>
+        </div>
+        
+        <div class="project-card cursor-pointer" onclick="openCreativeModal('capcut')">
+            <video muted class="w-full h-48 object-cover">
+                <source src="./images/Capcut/you_dont_have_an_enemy.mp4" type="video/mp4">
+            </video>
+            <div class="p-4">
+                <h3 class="font-semibold mb-2">Video Editing</h3>
+                <p class="text-sm text-gray-600">CapCut projects</p>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-6">
+                <!-- Experience Section -->
+                <!-- Experience Section -->
+
+
+
+
+           
+                <!-- Education Section -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>Education</h2>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="education-item">
+                            <div class="mb-2">
+                                <h3 class="font-semibold">Bachelor of Science in Information Technology</h3>
+                                <p class="text-sm text-gray-600">Negros Oriental State University</p>
+                            </div>
+                            <p class="text-xs text-gray-500">BSIT Program</p>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="mb-2">
+                                <h3 class="font-semibold">Senior High School</h3>
+                                <p class="text-sm text-gray-600">Negros College</p>
+                            </div>
+                            <p class="text-xs text-gray-500">Information and Communication Technology (ICT)</p>
+                        </div>
+                    </div>
+                </div>
+
+
+<div class="section-card">
+    <div class="section-header">
+        <h2>Experience</h2>
+    </div>
+    
+    <div class="space-y-4">
+        <div class="experience-item">
+            <div class="flex justify-between items-start mb-2">
+                <div>
+                    <h3 class="font-semibold">Intern - Treasurer's Office</h3>
+                    <p class="text-sm text-gray-600">Municipality of Ayungon</p>
+                </div>
+                <span class="text-xs text-gray-500">4 months</span>
+            </div>
+            <p class="text-sm text-gray-600">Gained hands-on experience in financial administration and public service operations.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="flex justify-between items-start mb-2">
+                <div>
+                    <h3 class="font-semibold">Intern</h3>
+                    <p class="text-sm text-gray-600">Manulife Dumaguete</p>
+                </div>
+                <span class="text-xs text-gray-500">2 months</span>
+            </div>
+            <p class="text-sm text-gray-600">Developed professional skills in the financial services industry.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="mb-2">
+                <h3 class="font-semibold">Professional Development</h3>
+                <p class="text-sm text-gray-600">Seminars and Webinars</p>
+            </div>
+            <p class="text-sm text-gray-600">Continuously expanding knowledge through industry seminars and webinars on web development, technology trends, and professional growth.</p>
+        </div>
+    </div>
+</div>
+
+                <!-- Social Links -->
+                <div class="section-card">
+                    <div class="section-header">
+                        
+                        <h2>Social Links</h2>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <a href="mailto:capiongdahnreymart@gmail.com" class="social-link">
+                            <img src="./images/social_logo/gmail.webp=s96-fcrop64=1,00000000ffffffff-rw" alt="Gmail" class="w-6 h-6 mr-3">
+                            <span class="text-sm">Email</span>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/dahnreymart.dejos" target="_blank" class="social-link">
+                            <img src="./images/social_logo/facebook.png" alt="Facebook" class="w-6 h-6 mr-3">
+                            <span class="text-sm">Facebook</span>
+                        </a>
+                        
+                        <a href="https://github.com/KaWaiIhA" target="_blank" class="social-link">
+                            <img src="./images/social_logo/github.png" alt="Facebook" class="w-6 h-6 mr-3">
+                            <span class="text-sm">Github</span>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/dahn_reymart?igsh=N3NnamV5NThwMWtz" target="_blank" class="social-link">
+                            <img src="./images/social_logo/instagram.png" alt="Instagram" class="w-6 h-6 mr-3">
+                            <span class="text-sm">Instagram</span>
+                         </a>
+                            <a href="https://www.tiktok.com/@swalowtails0?_r=1&_t=ZS-92nGfcGY0Eq" target="_blank" class="social-link">
+                            <img src="./images/social_logo/tik-tok.png" alt="Tiktok" class="w-6 h-6 mr-3">
+                            <span class="text-sm">Tiktok</span>
+                        </a>
+                    
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="section-card" id="contact">
+                    <div class="section-header">
+                       
+                        <h2>Get In Touch</h2>
+                    </div>
+                    
+                    <form id="contactForm" class="space-y-4">
+                        <input type="text" name="name" placeholder="Your Name" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <input type="email" name="email" placeholder="Your Email" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <textarea name="message" placeholder="Your Message" rows="4" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500 resize-none"></textarea>
+                        <button type="submit" class="btn-primary w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- View All Modal -->
+    <div id="viewAllModal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeViewAllModal()">✕</div>
+            <div id="viewAllContent"></div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeProjectModal()">✕</div>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+<!-- Creative Works Modal -->
+<div id="creativeModal" class="modal">
+    <div class="modal-content">
+        <div class="close-modal" onclick="closeCreativeModal()">✕</div>
+        <div id="creativeContent"></div>
+    </div>
+</div>
+
+<!-- Media Preview Modal -->
+<div id="mediaPreviewModal" class="modal">
+    <div class="modal-content" style="max-width: 90vw; max-height: 90vh;">
+        <div class="close-modal" onclick="closeMediaPreview()">✕</div>
+        <div id="mediaPreviewContent" class="flex items-center justify-center"></div>
+    </div>
+</div>
+
+<!-- Scheduler Modal -->
+<div id="schedulerModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+        <div class="close-modal" onclick="closeSchedulerModal()">✕</div>
+        <div id="schedulerContent">
+            <h2 class="text-3xl font-bold mb-4">Schedule a Call</h2>
+            <p class="text-gray-600 mb-6">Choose a date and time that works for you, and I'll get back to you to confirm.</p>
+            
+            <form id="schedulerForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Your Name *</label>
+                    <input type="text" name="name" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Your Email *</label>
+                    <input type="email" name="email" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                    <input type="tel" name="phone"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Preferred Date *</label>
+                        <input type="date" name="date" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Preferred Time *</label>
+                        <select name="time" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                            <option value="">Select time</option>
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="01:00 PM">01:00 PM</option>
+                            <option value="02:00 PM">02:00 PM</option>
+                            <option value="03:00 PM">03:00 PM</option>
+                            <option value="04:00 PM">04:00 PM</option>
+                            <option value="05:00 PM">05:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Call Purpose *</label>
+                    <select name="purpose" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <option value="">Select purpose</option>
+                        <option value="Web Development Project">Web Development Project</option>
+                        <option value="WordPress Website">WordPress Website</option>
+                        <option value="Social Media Management">Social Media Management</option>
+                        <option value="General Consultation">General Consultation</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Additional Notes</label>
+                    <textarea name="notes" rows="3"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500 resize-none"
+                        placeholder="Tell me more about your project or questions..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary w-full">Submit Appointment Request</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <script>
+        const projectData = {
+            project1: {
+                title: "First Aid Knowledge Based",
+                description: "Basic first aid knowledge focused on safety, response, and proper handling of common situations. This comprehensive system provides users with essential emergency response information, treatment protocols, and safety guidelines for various medical emergencies.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/first_aid/1.png",
+                    "./images/first_aid/2.png",
+                    "./images/first_aid/3.png",
+                    "./images/first_aid/4.png",
+                    "./images/first_aid/5.png"
+                ]
+            },
+            project2: {
+                title: "JETJAIRO Booking System",
+                description: "A simple and efficient booking system designed for fast scheduling, accurate records, and smooth user experience.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/jet_jairo/1.png",
+                    "./images/jet_jairo/2.png",
+                    "./images/jet_jairo/3.png",
+                    "./images/jet_jairo/4.jpg"
+                ]
+            },
+            project3: {
+                title: "Pharmacy Inventory",
+                description: "Systematic monitoring of medicines, supplies, and expiration dates for proper stock control.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/phar_inventory/1.png",
+                    "./images/phar_inventory/2.png",
+                    "./images/phar_inventory/3.png",
+                    "./images/phar_inventory/4.png",
+                    "./images/phar_inventory/5.png",
+                    "./images/phar_inventory/6.png",
+                    "./images/phar_inventory/7.png"
+                ]
+            },
+            project4: {
+                title: "Canva Designs",
+                description: "Essential design skills focused on creativity, efficiency, and professional editing of posters, videos, and graphics.",
+                tech: ["Canva", "Graphic Design", "Visual Content"],
+                images: [
+                    "./images/canva/1.png",
+                    "./images/canva/2.png",
+                    "./images/canva/3.png",
+                    "./images/canva/4.png",
+                    "./images/canva/5.png",
+                    "./images/canva/6.png",
+                    "./images/canva/7.png",
+                    "./images/canva/9.png",
+                    "./images/canva/10.png",
+                    "./images/canva/11.png",
+                    
+                    "./images/canva/12.png",
+                    "./images/canva/13.png"
+                ]
+            },
+            project5: {
+                title: "Video Editing - CapCut",
+                description: "CapCut makes video editing simple and creative, letting you trim, add effects, and enhance your clips for professional-quality results.",
+                tech: ["CapCut", "Video Editing", "Post Production"],
+                videos: [
+                    "./images/Capcut/lust.mp4",
+                    "./images/Capcut/FOODedit.mp4",
+                    "./images/Capcut/edits.mp4",
+                    "./images/Capcut/friends.mp4",
+                    "./images/Capcut/you_dont_have_an_enemy.mp4",
+                    "./images/Capcut/knowledgevslove.mp4",
+                    "./images/Capcut/status(love).mp4",
+                    "./images/Capcut/Messenger_creation_899DC7B2-DCAA-4DD9-9C22-039733B15EA0.mp4",
+                    "./images/Capcut/Messenger_creation_869C8CDC-8537-407E-9C76-8FA53CADF753.mp4"
+                ]
+            },
+            project6: {
+                title: "Furniture Inventory",
+                description: "Manage your furniture inventory efficiently, track stock, and organize items for smooth operations and easy access.",
+                tech: ["PHP", "HTML", "CSS", "JavaScript", "Tailwind CSS", "WAMPSERVER"],
+                images: [
+                    "./images/inventory_warehouse/1.png",
+                    "./images/inventory_warehouse/2.png",
+                    "./images/inventory_warehouse/3.png",
+                    "./images/inventory_warehouse/4.png",
+                    "./images/inventory_warehouse/5.png",
+                    "./images/inventory_warehouse/7.png",
+                    "./images/inventory_warehouse/8.png",
+                    "./images/inventory_warehouse/9.png",
+                    "./images/inventory_warehouse/10.png",
+                    "./images/inventory_warehouse/11.png",
+                    "./images/inventory_warehouse/12.png"
+                ]
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const project = projectData[projectId];
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('modalContent');
+            
+            let mediaContent = '';
+            
+            if (project.videos && project.videos.length > 0) {
+                mediaContent += '<h3 class="text-xl font-semibold mb-4">Project Videos</h3><div class="image-grid">';
+                project.videos.forEach(video => {
+                    mediaContent += `
+                        <video controls>
+                            <source src="${video}" type="video/mp4">
+                        </video>
+                    `;
+                });
+                mediaContent += '</div>';
+            }
+            
+            if (project.images && project.images.length > 0) {
+                mediaContent += '<h3 class="text-xl font-semibold mb-4 mt-6">Project Screenshots</h3><div class="image-grid">';
+                project.images.forEach(img => {
+                    mediaContent += `<img src="${img}" alt="${project.title}">`;
+                });
+                mediaContent += '</div>';
+            }
+            
+            content.innerHTML = `
+                <h2 class="text-3xl font-bold mb-4">${project.title}</h2>
+                <p class="text-gray-700 text-lg mb-6">${project.description}</p>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-3">Technologies Used:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${project.tech.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
+                    </div>
+                </div>
+                
+                ${mediaContent}
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('projectModal').addEventListener('click', (e) => {
+            if (e.target.id === 'projectModal') closeProjectModal();
+        });
+
+        document.querySelector('#contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const message = e.target.message.value;
+            
+            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            const yourEmail = 'capiongdahnreymart@gmail.com';
+            
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${subject}&body=${body}`, '_blank');
+            alert('Opening Gmail to send your message...');
+            e.target.reset();
+        });
+    </script>
+
+
+   <!-- AI Chatbot Button -->
+<button onclick="toggleChatbot()" id="chatbotButton" class="chatbot-button">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+    </svg>
+    <span class="chatbot-label">Chat with Dahn</span>
+</button>
+
+<!-- AI Chatbot Modal -->
+<div id="chatbotModal" class="chatbot-modal">
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <div class="header-info">
+                <h3 class="chat-title">Chat with Dahn</h3>
+                <div class="online-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+            </div>
+            <button onclick="toggleChatbot()" class="close-chat">✕</button>
+        </div>
+        
+        <div id="chatMessages" class="chat-messages">
+            <div class="bot-message-wrapper">
+                <div class="bot-avatar">
+                    <img src="images/dahn.jpg">
+                </div>
+                <div class="bot-message-content">
+                    <div class="bot-name">Dahn Reymart</div>
+                    <div class="message-bubble bot-bubble">
+                        Hi there! 👋 Thanks for visiting my website. Feel free to ask me anything about programming, web development, or my experiences in tech. Let me know how I can help!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <input 
+                type="text" 
+                id="chatInput" 
+                placeholder="Type a message..." 
+                class="chat-input"
+                maxlength="1000"
+                onkeypress="if(event.key==='Enter') sendMessage()"
+            >
+            <button onclick="sendMessage()" class="send-button" id="sendButton">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="chat-footer">
+            <p class="footer-text">Ask me about programming, web dev, or tech!</p>
+            <p class="char-counter"><span id="charCount">0</span>/1000</p>
+        </div>
+    </div>
+</div>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/cretive-modal.js"></script>
+    <script src="js/schedule.js"></script>
+    <script src="js/dark-light.js"></script>
+    <script src="js/chatbot.js"></script>
+
+
+    
+</body>
+</html>
