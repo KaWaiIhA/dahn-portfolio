@@ -1,0 +1,152 @@
+/* Sliding Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #cbd5e1;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.toggle-switch:hover {
+    background: #94a3b8;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .toggle-switch {
+    background: #3b82f6;
+}
+
+body.dark-mode .toggle-switch:hover {
+    background: #2563eb;
+}
+
+body.dark-mode .toggle-slider {
+    transform: translateX(30px);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .profile-container,
+body.dark-mode .section-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .section-header h2 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .text-gray-600 {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .text-gray-700 {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .text-gray-500 {
+    color: #64748b !important;
+}
+
+body.dark-mode .tech-badge {
+    background: #334155;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .recent-project-card,
+body.dark-mode .education-item,
+body.dark-mode .experience-item {
+    background: #334155;
+    border-color: #475569;
+}
+
+body.dark-mode .project-card:hover,
+body.dark-mode .recent-project-card:hover {
+    background: #475569;
+}
+
+body.dark-mode .social-link {
+    background: #334155;
+    border-color: #475569;
+}
+
+body.dark-mode .social-link:hover {
+    background: #475569;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #334155;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: #3b82f6;
+}
+
+body.dark-mode .btn-secondary {
+    background: #334155;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #475569;
+}
+
+body.dark-mode .modal-content {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+body.dark-mode .close-modal {
+    color: #e2e8f0;
+}
+
+body.dark-mode .close-modal:hover {
+    background: #334155;
+}
+
+body.dark-mode .view-all-link {
+    color: #60a5fa;
+}
+
+body.dark-mode .view-all-link:hover {
+    color: #93c5fd;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .why-me-item {
+    background: #334155;
+    border-color: #475569;
+}
