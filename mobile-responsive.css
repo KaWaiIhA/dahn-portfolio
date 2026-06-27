@@ -1,0 +1,506 @@
+/* ============================================================
+   mobile-responsive.css  — place in your /css/ folder
+   <link rel="stylesheet" href="css/mobile-responsive.css">
+   Put this AFTER your main <style> block.
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* ── HIDE DESKTOP SIDEBAR ── */
+  .sidebar { display: none !important; }
+
+  /* ── MAIN RESET ── */
+  .main {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    padding: 0 0 72px 0 !important;
+  }
+
+  /* ── TOP BAR FIX ── */
+  .topbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 200 !important;
+    background: var(--bg-sidebar) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding: 10px 16px !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .mobile-header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    order: 0 !important;
+  }
+
+  .dark-toggle {
+    order: 1 !important;
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+    gap: 7px !important;
+  }
+
+  .toggle-track { width: 30px !important; height: 17px !important; }
+  .toggle-thumb { width: 11px !important; height: 11px !important; }
+  [data-theme="dark"] .toggle-thumb { transform: translateX(13px) !important; }
+
+  /* ── HERO ── */
+  #hero { margin-bottom: 0 !important; }
+
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .hero-card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    padding: 20px 16px !important;
+    animation: none !important;
+  }
+
+  .hero-card::before { display: none !important; }
+
+  .hero-name { font-size: 28px !important; line-height: 1.15 !important; }
+  .hero-intro { font-size: 13px !important; margin-bottom: 2px !important; }
+  .hero-role { font-size: 13px !important; margin-bottom: 8px !important; }
+  .hero-desc { font-size: 13px !important; margin-bottom: 16px !important; }
+  .hero-underline { margin: 10px 0 12px !important; }
+  .hero-btns { gap: 10px !important; margin-bottom: 16px !important; }
+
+  .btn-primary, .btn-secondary {
+    padding: 11px 18px !important;
+    font-size: 13px !important;
+    flex: 1 !important;
+    justify-content: center !important;
+  }
+
+  .hero-social { gap: 12px !important; }
+  .hero-social span { font-size: 12px !important; }
+  .social-icon { width: 34px !important; height: 34px !important; }
+
+  /* ── PROFILE CARD ── */
+  .profile-card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    padding: 0 16px 8px !important;
+    animation: none !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .profile-img-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    padding: 20px 0 16px !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .profile-img-ring {
+    width: 110px !important;
+    height: 110px !important;
+    cursor: pointer !important;
+    animation: none !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+
+  .profile-img-ring:hover,
+  .profile-img-ring:active {
+    transform: scale(1.04) !important;
+    box-shadow: 0 8px 28px rgba(124,58,237,0.35) !important;
+  }
+
+  .profile-card::before {
+    content: 'At a Glance';
+    display: block !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    padding: 16px 0 14px !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .profile-info-item { padding: 10px 0 !important; }
+  .info-icon { width: 32px !important; height: 32px !important; border-radius: 7px !important; }
+  .info-label { font-size: 10px !important; }
+  .info-value { font-size: 12px !important; }
+
+  /* ── CONTENT GRID ── */
+  .content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  .col-left, .col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .col-right { order: -1 !important; }
+  .col-left  { order:  1 !important; }
+
+  /* ── CARDS ── */
+  .card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding: 16px !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .card-header {
+    margin-bottom: 14px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+
+  .card-title { font-size: 15px !important; }
+  .card-title-icon { width: 28px !important; height: 28px !important; border-radius: 7px !important; }
+
+  .card-header::after {
+    content: '›' !important;
+    font-size: 22px !important;
+    color: var(--text-muted) !important;
+    margin-left: auto !important;
+    transition: transform 0.3s !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .card.expanded .card-header::after {
+    transform: rotate(90deg) !important;
+    color: var(--accent-light) !important;
+  }
+
+  .card > *:not(.card-header) { display: none !important; }
+
+  .card.expanded .tech-row          { display: flex !important; }
+  .card.expanded .tech-section      { display: block !important; }
+  .card.expanded .why-grid          { display: grid !important; }
+  .card.expanded .projects-grid     { display: grid !important; }
+  .card.expanded .cert-grid         { display: flex !important; flex-direction: column !important; }
+  .card.expanded .timeline          { display: block !important; }
+  .card.expanded .social-links-list { display: flex !important; flex-direction: column !important; }
+  .card.expanded p                  { display: block !important; }
+  .card.expanded .stagger           { display: grid !important; }
+  .card.expanded .view-all          { display: inline !important; }
+
+  /* ── WHY-ME GRID ── */
+  .why-grid, .why-grid.stagger {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .why-item { padding: 12px !important; }
+  .why-item h4 { font-size: 12px !important; }
+  .why-item p  { font-size: 11px !important; }
+
+  /* ── PROJECTS ── */
+  .projects-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .project-img   { height: 160px !important; }
+  .project-title { font-size: 13px !important; }
+  .project-desc  { font-size: 11px !important; }
+
+  /* ── TECH STACK ── */
+  .tech-badge   { font-size: 11px !important; padding: 4px 10px !important; }
+  .tech-label   { font-size: 10px !important; }
+  .tech-section { margin-bottom: 14px !important; }
+
+  /* ── TIMELINE ── */
+  .timeline-title { font-size: 13px !important; }
+  .timeline-sub   { font-size: 11px !important; }
+  .timeline-desc  { font-size: 11px !important; }
+  .timeline-badge { font-size: 10px !important; white-space: nowrap !important; }
+
+  /* ── CERTIFICATES ── */
+  .cert-name { font-size: 12px !important; }
+  .cert-org  { font-size: 10px !important; }
+  .cert-item { padding: 11px 12px !important; gap: 10px !important; }
+  .cert-icon { width: 34px !important; height: 34px !important; }
+
+  /* ── SOCIAL LINKS ── */
+  .social-link-item { padding: 10px 12px !important; font-size: 12px !important; }
+
+  /* ── RECENT CARDS ── */
+  .recent-card    { padding: 13px !important; border-radius: 10px !important; }
+  .recent-card h4 { font-size: 12px !important; }
+  .recent-card p  { font-size: 11px !important; }
+
+  /* ── CONTACT CTA ── */
+  .contact-cta {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    padding: 20px 16px !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .contact-cta h2 { font-size: 20px !important; }
+  .contact-cta p  { font-size: 13px !important; }
+  .contact-form   { gap: 10px !important; }
+  .form-row   { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .form-input { padding: 10px 12px !important; font-size: 13px !important; }
+
+  /* ── CHATBOT ── */
+  .chatbot-btn {
+    bottom: 76px !important;
+    right: 70px !important;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+  }
+
+  .chatbot-modal {
+    bottom: 134px !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-align: center !important;
+    padding: 16px !important;
+    font-size: 11px !important;
+    margin-top: 0 !important;
+  }
+
+  /* ── MODALS ── */
+  .modal-box {
+    padding: 20px 16px !important;
+    max-height: 90vh !important;
+    border-radius: 16px !important;
+  }
+
+  .modal-title { font-size: 18px !important; }
+  .modal-imgs  { grid-template-columns: 1fr !important; }
+  .modal-desc  { font-size: 13px !important; }
+
+  .lightbox-prev { left: -36px !important; }
+  .lightbox-next { right: -36px !important; }
+
+  .scheduler-form .form-row { grid-template-columns: 1fr !important; }
+
+  /* ── BOTTOM NAV BAR ── */
+  .mobile-bottom-nav {
+    position: fixed !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important;
+    height: 60px !important;
+    background: var(--bg-sidebar) !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    z-index: 300 !important;
+    padding: 0 4px !important;
+  }
+
+  .mobile-nav-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3px !important;
+    padding: 6px 10px !important;
+    color: var(--text-muted) !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    background: none !important;
+    border: none !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.2s !important;
+    min-width: 44px !important;
+    text-decoration: none !important;
+  }
+
+  .mobile-nav-item svg { width: 20px !important; height: 20px !important; }
+
+  .mobile-nav-item.active {
+    color: var(--accent-light) !important;
+    background: rgba(124,58,237,0.1) !important;
+  }
+
+  /* ── SCROLL TOP FAB ── */
+  .mobile-scroll-top {
+    position: fixed !important;
+    bottom: 72px !important;
+    right: 16px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: var(--accent) !important;
+    border: none !important;
+    color: #fff !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.4) !important;
+    z-index: 250 !important;
+  }
+
+  .mobile-scroll-top.visible { display: flex !important; }
+
+  /* ── PROFILE PHOTO LIGHTBOX ── */
+  .profile-photo-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-photo-lightbox.open { display: flex !important; }
+
+  .profile-photo-lightbox img {
+    width: 85vw;
+    max-width: 340px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 40px rgba(124,58,237,0.5);
+    animation: scaleIn 0.22s ease both;
+  }
+
+  .profile-photo-lightbox-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 38px; height: 38px;
+    background: var(--accent);
+    border: none; border-radius: 50%;
+    color: #fff; font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── DISABLE SCROLL ANIMATIONS ON MOBILE ── */
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── EXTRA SMALL (<380px) ── */
+@media (max-width: 380px) {
+  .hero-name { font-size: 24px !important; }
+  .btn-primary, .btn-secondary { font-size: 12px !important; padding: 10px 12px !important; }
+  .why-grid, .why-grid.stagger { grid-template-columns: 1fr !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+  .mobile-nav-item { font-size: 9px !important; padding: 6px !important; min-width: 38px !important; }
+}
+
+/* ── TABLET (769–1100px) ── */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .sidebar { width: 200px; }
+  .main { margin-left: 200px; max-width: calc(100% - 200px); padding: 24px 20px; }
+  .hero-grid { grid-template-columns: 1fr 260px; gap: 16px; }
+  .content-grid { grid-template-columns: 1fr 280px; gap: 16px; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .hero-name { font-size: 32px; }
+}
+/* ============================================================
+   ADD THIS to mobile-responsive.css
+   (these classes are only ever added to elements by mobile-nav.js
+   while on mobile, and removed when resizing back to desktop —
+   but defining them inside the media query keeps everything
+   scoped safely either way)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Replaces the old forced inline cssText on .topbar */
+  .topbar.mobile-topbar-active {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 200 !important;
+    background: var(--bg-sidebar) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding: 10px 16px !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .mobile-header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    order: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-header-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--accent);
+  }
+
+  .mobile-header-name {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  .mobile-header-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* Replaces the old forced inline cssText on .dark-toggle */
+  .dark-toggle.mobile-toggle-active {
+    order: 1 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Replaces the old direct style.bottom / style.right on .chatbot-btn */
+  .chatbot-btn.mobile-chatbot-active {
+    bottom: 76px !important;
+    right: 70px !important;
+  }
+}
