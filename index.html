@@ -1032,9 +1032,17 @@ function toggleChat() {
                 ${p.tech.map(t => `<span class="tech-badge">${t}</span>`).join('')}
             </div>
             <div class="modal-imgs">
-                ${p.images.map((img, i) => `<img src="${img}" alt="${p.title}" onclick="openLightbox(${JSON.stringify(p.images)}, ${i})" title="Click to enlarge">`).join('')}
+                ${p.images.map((img, i) => `<img src="${img}" alt="${p.title}" data-idx="${i}" class="modal-img-clickable" title="Click to enlarge" style="cursor:zoom-in;">`).join('')}
             </div>
         `;
+        // Attach click listeners here instead of inline JSON in onclick
+        // (embedding JSON.stringify directly in a double-quoted onclick attribute
+        // breaks the HTML at the first quote inside the array, killing the handler)
+        document.querySelectorAll('#projectModalContent .modal-img-clickable').forEach(imgEl => {
+            imgEl.addEventListener('click', () => {
+                openLightbox(p.images, parseInt(imgEl.dataset.idx, 10));
+            });
+        });
         document.getElementById('projectModal').classList.add('open');
     }
 
