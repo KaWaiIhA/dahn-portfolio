@@ -19,7 +19,7 @@
 // ---- CONFIG ----------------------------------------------------------
 // Prefer an environment variable if your host supports it (cPanel, etc.).
 // Otherwise paste your key directly as the fallback string.
-$GEMINI_API_KEY = getenv('GEMINI_API_KEY') ?: 'PASTE_YOUR_GEMINI_API_KEY_HERE';
+$GEMINI_API_KEY = getenv('GEMINI_API_KEY') ?: 'AQ.Ab8RN6KaT0qAVn9GSvNaD4PhPrUUWE9tojPX7lKTZoNNNePKxA';
 
 // Restrict which sites are allowed to call this endpoint. Set to your real
 // domain once deployed (e.g. 'https://ayungon.gov.ph' or your portfolio URL).
